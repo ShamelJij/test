@@ -18,3 +18,4 @@ let child = new SomeChildClass();
 child.stateName("this is a test");
 //$("#feld").text("sometxt");
 //newcontent
+//someothercontent
