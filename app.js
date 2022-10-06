@@ -10,23 +10,11 @@ class Someparent {
   }
 
   showTimer(endTimePoint) {
-    let theEnd = endTimePoint;
-    let ndx = 0;
     $(document).ready(function () {
-      var d = document.getElementById('col1');
-      setInterval(function () {
-        if (ndx > theEnd) {
-          return;
-        } else {
-          ndx++;
-          let theEndHex = ndx.toString(16);
-          //   d.style.display = d.style.display == 'none' ? '' : 'none';
-          $('#col1').append(
-            `<p class="text-center round bg-info small text-white">Decimal = ${ndx} | Hexadecimal = ${theEndHex}</p>`
-          );
-          console.log(theEnd);
-        }
-      }, 200);
+      let firstCol = new Promise((resolve, reject) => {});
+      let secondCol = new Promise((resolve, reject) => {});
+      function thirdCol() {}
+      firstCol();
     });
   }
 
@@ -55,6 +43,69 @@ class Someparent {
       }, 600);
     });
   }
+  async promiseAllDemo(endTimePoint) {
+    try {
+      let theEnd = endTimePoint;
+      let ndx1 = 0;
+      let ndx2 = 0;
+      let ndx3 = 0;
+      const promise1 = await new Promise((resolve, reject) => {
+        setInterval(function () {
+          if (ndx1 > theEnd) {
+            resolve();
+          } else {
+            ndx1++;
+            let theEndHex1 = ndx1.toString(16);
+            //   d.style.display = d.style.display == 'none' ? '' : 'none';
+            $('#col1').append(
+              `<p class="text-center round bg-info small text-white">Decimal = ${ndx1} | Hexadecimal = ${theEndHex1}</p>`
+            );
+            console.log(ndx1);
+          }
+        }, 200);
+        console.log('fi');
+      });
+      const promise2 = await new Promise((resolve, reject) => {
+        setInterval(function () {
+          if (ndx2 > theEnd) {
+            resolve();
+          } else {
+            ndx2++;
+            let theEndHex2 = ndx2.toString(16);
+            //   d.style.display = d.style.display == 'none' ? '' : 'none';
+            $('#col2').append(
+              `<p class="text-center round bg-info small text-white">Decimal = ${ndx2} | Hexadecimal = ${theEndHex2}</p>`
+            );
+            console.log(ndx2);
+          }
+        }, 200);
+        console.log('sec');
+      });
+      const promise3 = await new Promise((resolve, reject) => {
+        setInterval(function () {
+          if (ndx3 > theEnd) {
+            return;
+          } else {
+            ndx3++;
+            let theEndHex3 = ndx3.toString(16);
+            //   d.style.display = d.style.display == 'none' ? '' : 'none';
+            $('#col3').append(
+              `<p class="text-center round bg-info small text-white">Decimal = ${ndx3} | Hexadecimal = ${theEndHex3}</p>`
+            );
+            console.log(ndx3);
+          }
+        }, 200);
+        console.log('thir');
+      });
+      const resolvedPromises = await Promise.all([
+        promise1,
+        promise2,
+        promise3,
+      ]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 
 class SomeChildClass extends Someparent {
@@ -65,5 +116,6 @@ class SomeChildClass extends Someparent {
 let child = new SomeChildClass();
 child.stateName('this is a test');
 // child.showMatrix(1, 2, 3);
-child.showTimer(15);
+// child.showTimer(14);
+child.promiseAllDemo(14);
 //$("#feld").text("sometxt");
