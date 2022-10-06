@@ -3,10 +3,33 @@ class Someparent {
     this.age;
     this.name;
   }
+
   stateName(someStr) {
     //change feld!!
     $('#feld').text(someStr);
   }
+
+  showTimer(endTimePoint) {
+    let theEnd = endTimePoint;
+    let ndx = 0;
+    $(document).ready(function () {
+      var d = document.getElementById('col1');
+      setInterval(function () {
+        if (ndx > theEnd) {
+          return;
+        } else {
+          ndx++;
+          let theEndHex = ndx.toString(16);
+          //   d.style.display = d.style.display == 'none' ? '' : 'none';
+          $('#col1').append(
+            `<p class="text-center round bg-info small text-white">Decimal = ${ndx} | Hexadecimal = ${theEndHex}</p>`
+          );
+          console.log(theEnd);
+        }
+      }, 200);
+    });
+  }
+
   showMatrix(first, second, third) {
     let i = first;
     let j = second;
@@ -14,22 +37,22 @@ class Someparent {
     $(document).ready(function () {
       var f = document.getElementById('col2');
       setInterval(function () {
-        if (i > 99990) {
+        if (i > 900) {
           return;
         } else {
           f.style.display = f.style.display == 'none' ? '' : 'none';
-          i *= 2;
-          j *= 3;
-          k *= 4;
+          i++;
+          j++;
+          k++;
           $('#col2').append(
             `<p class="text-center bg-danger h4 text-white p-3">i = ${i} | j = ${j} | k = ${k}</p>`
           );
           setTimeout(function () {
             $('#col2').empty();
-          }, 600);
+          }, 350);
           console.log(f.text);
         }
-      }, 800);
+      }, 600);
     });
   }
 }
@@ -41,5 +64,6 @@ class SomeChildClass extends Someparent {
 }
 let child = new SomeChildClass();
 child.stateName('this is a test');
-child.showMatrix(1, 2, 3);
+// child.showMatrix(1, 2, 3);
+child.showTimer(15);
 //$("#feld").text("sometxt");
