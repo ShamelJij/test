@@ -86,7 +86,7 @@ class Someparent {
                 );
                 console.log(nndx12);
               }
-            }, 200);
+            }, 800);
             console.log('nndx12');
           });
           const somePromise22 = await new Promise((resolve, reject) => {
@@ -101,7 +101,7 @@ class Someparent {
                 );
                 console.log(nndx22);
               }
-            }, 200);
+            }, 100);
             console.log('nndx22');
           });
           const somePromise23 = await new Promise((resolve, reject) => {
@@ -116,7 +116,7 @@ class Someparent {
                 );
                 console.log(nndx23);
               }
-            }, 200);
+            }, 800);
           });
           //   $('#col12').append(
           //     `<p class="text-center round bg-success small text-white">result = ${nndx2}</p>`
