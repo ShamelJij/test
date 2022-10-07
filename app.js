@@ -177,7 +177,7 @@ class Someparent {
             let theEndHex2 = ndx2.toString(16);
             //   d.style.display = d.style.display == 'none' ? '' : 'none';
             $('#col2').append(
-              `<p class="text-center rounded bg-info py-2 small text-white">Decimal = ${ndx2} | Hexadecimal = ${theEndHex2}</p>`
+              `<p class="text-center rounded table-info py-2 small text-info">Decimal = ${ndx2} | Hexadecimal = ${theEndHex2}</p>`
             );
             console.log(ndx2);
           }
@@ -193,7 +193,7 @@ class Someparent {
             let theEndHex3 = ndx3.toString(16);
             //   d.style.display = d.style.display == 'none' ? '' : 'none';
             $('#col3').append(
-              `<p class="text-center round bg-danger small text-white">Decimal = ${ndx3} | Hexadecimal = ${theEndHex3}</p>`
+              `<p class="text-center round table-danger small text-danger">Decimal = ${ndx3} | Hexadecimal = ${theEndHex3}</p>`
             );
             console.log(ndx3);
           }
