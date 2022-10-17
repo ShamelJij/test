@@ -1,6 +1,6 @@
 class myChartClass {
   constructor() {
-    const labels = [
+    let labels = [
       'January',
       'February',
       'March',
@@ -11,19 +11,25 @@ class myChartClass {
       'testMonth',
     ];
 
-    const data = {
+    let data = {
       labels: labels,
       datasets: [
         {
           label: 'My First dataset',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45, 402, 50],
+          data: [0, 10, 5, 2, 70, 45, 45, 402, 50],
+        },
+        {
+          label: 'My second dataset',
+          backgroundColor: 'rgb(255, 165, 0)',
+          borderColor: 'rgb(255, 165, 0)',
+          data: [300, 100, 50, 60, 20, 30, 9, 120, 50],
         },
       ],
     };
 
-    const config = {
+    let config = {
       type: 'line',
       data: data,
       options: {},
