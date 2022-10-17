@@ -1,7 +1,45 @@
+class myChartClass {
+  constructor() {
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'Juli',
+      'testMonth',
+    ];
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20, 30, 45, 402, 50],
+        },
+      ],
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {},
+    };
+
+    const myChart = new Chart(document.getElementById('myChart'), config);
+  }
+  showChart(chart) {
+    $('#myChartDiv').append(chart);
+  }
+}
+
 class Someparent {
   constructor(name, age) {
-    this.age;
-    this.name;
+    age;
+    name;
   }
 
   stateName(someStr) {
@@ -216,10 +254,12 @@ class SomeChildClass extends Someparent {
     super();
   }
 }
-let child = new SomeChildClass();
-child.stateName('this is a test');
+// let child = new SomeChildClass();
+// child.stateName('this is a test');
 // child.showMatrix(1, 2, 3);
 // child.showTimer(14);
-child.promiseAllDemo(14);
-child.anotherPromise(4);
+// child.promiseAllDemo(14);
+// child.anotherPromise(4);
 //$("#feld").text("sometxt");
+let chartClass = new myChartClass();
+chartClass.showChart(chartClass.myChart);
