@@ -1,7 +1,14 @@
 class myChartClass {
   constructor() {
     let labels = this.getHours();
-
+    let d1 = [];
+    let d2 = [];
+    for (let i = 0; i < 90; i++) {
+      d1[i] = Math.round(Math.random() * (250 - 50) + 50);
+    }
+    for (let j = 0; j < 90; j++) {
+      d2[j] = Math.round(Math.random() * (250 - 50) + 50);
+    }
     let data = {
       labels: labels,
       datasets: [
@@ -9,13 +16,13 @@ class myChartClass {
           label: 'My First dataset',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 70, 45, 45, 402, 50],
+          data: [0, 30, ...d1, 300],
         },
         {
           label: 'My second dataset',
           backgroundColor: 'rgb(255, 165, 0)',
           borderColor: 'rgb(255, 165, 0)',
-          data: [300, 100, 50, 60, 20, 30, 9, 120, 50],
+          data: [0, 20, ...d2, 300],
         },
       ],
     };
@@ -33,6 +40,8 @@ class myChartClass {
   }
   getHours() {
     const arr = [];
+    console.log(Math.round(Math.random() * (300 - 0) + 0));
+    //24 hours can be set a variable
     for (let i = 0; i < 24; i++) {
       for (let j = 0; j < 4; j++) {
         arr.push(`${i}:${j === 0 ? `00` : 15 * j}`);
