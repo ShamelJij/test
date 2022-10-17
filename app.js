@@ -1,15 +1,6 @@
 class myChartClass {
   constructor() {
-    let labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'Juli',
-      'testMonth',
-    ];
+    let labels = this.getHours();
 
     let data = {
       labels: labels,
@@ -39,6 +30,24 @@ class myChartClass {
   }
   showChart(chart) {
     $('#myChartDiv').append(chart);
+  }
+  getHours() {
+    const arr = [];
+    for (let i = 0; i < 24; i++) {
+      for (let j = 0; j < 4; j++) {
+        arr.push(`${i}:${j === 0 ? `00` : 15 * j}`);
+      }
+    }
+    const d = new Date('2022-10-17T00:00:00'),
+      h = d.getHours(),
+      m = 15 * Math.floor(d.getMinutes() / 15),
+      stamp = `${h}:${m === 0 ? `00` : m}`;
+    const pos = arr.indexOf(stamp);
+    let timeList = [];
+    if (pos > -1) {
+      timeList = [...arr.slice(pos), ...arr.slice(0, pos)];
+    }
+    return timeList;
   }
 }
 
